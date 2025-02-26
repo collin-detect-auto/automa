@@ -715,6 +715,30 @@
           "response": "Response"
         }
       },
+      "llm": {
+        "name": "LLM",
+        "description": "Interact with a Large Language Model",
+        "textContext": "Text context",
+        "imageContext": "Image context",
+        "apiResults": "API results",
+        "userPrompt": "User prompt",
+        "contentType": "Content type",
+        "method": "Request method",
+        "url": "Request URL",
+        "fallback": "Executes when the LLM request fails",
+        "buttons": {
+          "header": "Add header"
+        },
+        "timeout": {
+          "placeholder": "Timeout",
+          "title": "LLM request execution timeout (ms)"
+        },
+        "tabs": {
+          "headers": "Headers",
+          "body": "Body",
+          "response": "Response"
+        }
+      },
       "while-loop": {
         "name": "While loop",
         "description": "Executes blocks while the condition is met",

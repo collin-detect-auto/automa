@@ -171,6 +171,12 @@ export async function validateWebhook(data) {
   return [];
 }
 
+export async function validateLLM(data) {
+  if (isEmptyStr(data.url)) return ['The URL is empty'];
+
+  return [];
+}
+
 export async function validateLoopData(data) {
   const errors = [];
   if (isEmptyStr(data.loopId)) errors.push('The Loop id is empty');
