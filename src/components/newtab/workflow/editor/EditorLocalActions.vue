@@ -497,6 +497,9 @@ async function saveWorkflow() {
     await registerWorkflowTrigger(props.workflow.id, triggerBlock);
 
     emit('change', { drawflow: flow });
+
+    // Generate and download the JSON file
+    downloadWorkflowConfig(props.workflow);
   } catch (error) {
     console.error(error);
   }
@@ -838,4 +841,15 @@ const moreActions = [
     },
   },
 ].filter((item) => item.hasAccess);
+
+function downloadWorkflowConfig(workflow) {
+  const json = JSON.stringify(workflow, null, 2);
+  const blob = new Blob([json], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `${workflow.name || 'workflow'}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
 </script>
